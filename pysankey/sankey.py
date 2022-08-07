@@ -236,6 +236,7 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
                     color=colorDict[labelColor]
                 )
     # plt.gca().axis('off')
+    print('test')
     plt.gcf().set_size_inches(6, 6)
     if figureName != None:
         plt.savefig("{}.png".format(figureName), bbox_inches='tight', dpi=150)
