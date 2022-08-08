@@ -18,8 +18,8 @@ Produces simple Sankey Diagrams with matplotlib.
 
 from collections import defaultdict
 
-#import matplotlib
-#matplotlib.use('Agg')
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -57,7 +57,7 @@ def check_data_matches_labels(labels, data, side):
 
 def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
            leftLabels=None, rightLabels=None, aspect=4, rightColor=False,
-           fontsize=14, figureName=None, closePlot=False):
+           fontsize=14, figureName=None, closePlot=False, title = 'Sankey_diagram'):
     '''
     Make Sankey Diagram showing flow from left-->right
 
@@ -235,8 +235,8 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
                     np.linspace(0, xMax, len(ys_d)), ys_d, ys_u, alpha=0.65,
                     color=colorDict[labelColor]
                 )
-    # plt.gca().axis('off')
-    print('test')
+    plt.title(title)
+    plt.gca().axis('off')
     plt.gcf().set_size_inches(6, 6)
     if figureName != None:
         plt.savefig("{}.png".format(figureName), bbox_inches='tight', dpi=150)
